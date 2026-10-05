@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GameMode {
     idle,
@@ -17,6 +18,7 @@ public class MissionDemolition : MonoBehaviour {
     public Text uitShots; // The UIText_Shots Text
     public Vector3 castlePos; // The place to put castles
     public GameObject[] castles; // An array of the castles
+    public GameObject gameOverPanel;
 
     [Header("Dynamic")]
     public int level; // The current level
@@ -80,11 +82,16 @@ public class MissionDemolition : MonoBehaviour {
 
     void NextLevel() {
         level++;
-        if (level == levelMax) {
-            level = 0;
-            shotsTaken = 0;
+        if (level >= levelMax) {
+            mode = GameMode.idle;
+            gameOverPanel.SetActive(true);
+            return;
         }
         StartLevel();
+    }
+
+    public void PlayAgain() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     // Static method that allows code anywhere to increment shotsTaken
