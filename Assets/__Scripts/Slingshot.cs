@@ -11,6 +11,10 @@ public class Slingshot : MonoBehaviour {
 
     public LineRenderer rubberBand;
 
+    public AudioClip launchSound;
+
+private AudioSource audioSource;
+
     // fields set dynamically
     [Header("Dynamic")]
     public GameObject launchPoint;
@@ -26,6 +30,8 @@ public class Slingshot : MonoBehaviour {
 
         rubberBand.positionCount = 2;
         rubberBand.enabled = false;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnMouseEnter() {
@@ -73,6 +79,8 @@ public class Slingshot : MonoBehaviour {
 
         if (Input.GetMouseButtonUp(0)) {
             aimingMode = false;
+
+            audioSource.PlayOneShot(launchSound);
 
             rubberBand.enabled = false;
 
