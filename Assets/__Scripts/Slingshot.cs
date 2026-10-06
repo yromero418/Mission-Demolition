@@ -43,6 +43,11 @@ private AudioSource audioSource;
     }
 
     void OnMouseDown() {
+
+        if (MissionDemolition.GET_MODE() != GameMode.playing) {
+            return;
+        }
+
         aimingMode = true;
 
         rubberBand.enabled = true;

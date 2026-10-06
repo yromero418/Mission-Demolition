@@ -110,3 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57d6c2817786634380bb73154892f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 7538254990489416442, guid: 19edc3232e2dbac4682d6a51254a578d, type: 3}

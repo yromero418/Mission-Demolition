@@ -104,4 +104,7 @@ public class MissionDemolition : MonoBehaviour {
         return S.castle;
     }
 
+    static public GameMode GET_MODE() {
+        return S.mode;
+    }
 }
